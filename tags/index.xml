@@ -1,63 +1,63 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - Chris Bell&#39;s Blog</title>
-        <link>chrsbell.github.io/tags/</link>
+        <link>https://chrsbell.github.io/tags/</link>
         <description>Tags - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="chrsbell.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>chip-8</title>
-    <link>chrsbell.github.io/tags/chip-8/</link>
+    <link>https://chrsbell.github.io/tags/chip-8/</link>
     <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/chip-8/</guid>
+    <guid>https://chrsbell.github.io/tags/chip-8/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>emulator</title>
-    <link>chrsbell.github.io/tags/emulator/</link>
+    <link>https://chrsbell.github.io/tags/emulator/</link>
     <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/emulator/</guid>
+    <guid>https://chrsbell.github.io/tags/emulator/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>python</title>
-    <link>chrsbell.github.io/tags/python/</link>
+    <link>https://chrsbell.github.io/tags/python/</link>
     <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/python/</guid>
+    <guid>https://chrsbell.github.io/tags/python/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>design</title>
-    <link>chrsbell.github.io/tags/design/</link>
+    <link>https://chrsbell.github.io/tags/design/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/design/</guid>
+    <guid>https://chrsbell.github.io/tags/design/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>keyboard</title>
-    <link>chrsbell.github.io/tags/keyboard/</link>
+    <link>https://chrsbell.github.io/tags/keyboard/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/keyboard/</guid>
+    <guid>https://chrsbell.github.io/tags/keyboard/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>low-latency</title>
-    <link>chrsbell.github.io/tags/low-latency/</link>
+    <link>https://chrsbell.github.io/tags/low-latency/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/low-latency/</guid>
+    <guid>https://chrsbell.github.io/tags/low-latency/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>pcb</title>
-    <link>chrsbell.github.io/tags/pcb/</link>
+    <link>https://chrsbell.github.io/tags/pcb/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/pcb/</guid>
+    <guid>https://chrsbell.github.io/tags/pcb/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>serial</title>
-    <link>chrsbell.github.io/tags/serial/</link>
+    <link>https://chrsbell.github.io/tags/serial/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/tags/serial/</guid>
+    <guid>https://chrsbell.github.io/tags/serial/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

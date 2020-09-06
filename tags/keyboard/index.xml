@@ -1,16 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>keyboard - Tag - Chris Bell&#39;s Blog</title>
-        <link>chrsbell.github.io/tags/keyboard/</link>
+        <link>https://chrsbell.github.io/tags/keyboard/</link>
         <description>keyboard - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Aug 2020 20:02:36 -0700</lastBuildDate><atom:link href="chrsbell.github.io/tags/keyboard/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Aug 2020 20:02:36 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/keyboard/" rel="self" type="application/rss+xml" /><item>
     <title>Designing a Serial Keyboard PCB</title>
-    <link>chrsbell.github.io/designing-a-serial-keyboard/</link>
+    <link>https://chrsbell.github.io/designing-a-serial-keyboard/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/designing-a-serial-keyboard/</guid>
+    <guid>https://chrsbell.github.io/designing-a-serial-keyboard/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/chrsbell.github.io/featured-image.jpeg" referrerpolicy="no-referrer">
+                <img src="/featured-image.jpeg" referrerpolicy="no-referrer">
             </div><script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="/js/load-photoswipe.js"></script>
 
