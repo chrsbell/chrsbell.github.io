@@ -2,19 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://chrsbell.github.io/categories/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/categories/chip-8/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/chip-8/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/designing-a-chip8-emulator-in-python/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/emulator/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/posts/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/python/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/design/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/designing-a-serial-keyboard/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/keyboard/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/low-latency/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/pcb/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/tags/serial/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://chrsbell.github.io/categories/serial-keyboard/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
+            <loc>chrsbell.github.io/categories/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/categories/chip-8/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/chip-8/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/designing-a-chip8-emulator-in-python/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/emulator/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/posts/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/python/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/design/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/designing-a-serial-keyboard/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/keyboard/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/low-latency/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/pcb/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/tags/serial/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>chrsbell.github.io/categories/serial-keyboard/</loc><lastmod>2020-09-05T22:21:25-07:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
