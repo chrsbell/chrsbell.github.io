@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>chip-8 - Tag - Chris Bell&#39;s Blog</title>
-        <link>http://chrsbell.github.io/tags/chip-8/</link>
+        <link>https://chrsbell.github.io/tags/chip-8/</link>
         <description>chip-8 - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="http://chrsbell.github.io/tags/chip-8/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/chip-8/" rel="self" type="application/rss+xml" /><item>
     <title>Designing a Chip-8 Emulator in Python</title>
-    <link>http://chrsbell.github.io/designing-a-chip8-emulator-in-python/</link>
+    <link>https://chrsbell.github.io/designing-a-chip8-emulator-in-python/</link>
     <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
     <author>Author</author>
-    <guid>http://chrsbell.github.io/designing-a-chip8-emulator-in-python/</guid>
+    <guid>https://chrsbell.github.io/designing-a-chip8-emulator-in-python/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featured-image.jpeg" referrerpolicy="no-referrer">
             </div>                             ]]></description>

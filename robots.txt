@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: http://chrsbell.github.io/sitemap.xml
+Sitemap: https://chrsbell.github.io/sitemap.xml
