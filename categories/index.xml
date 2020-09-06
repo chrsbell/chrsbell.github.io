@@ -1,21 +1,21 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - Category - Chris Bell&#39;s Blog</title>
-        <link>chrsbell.github.io/categories/</link>
+        <link>/categories/</link>
         <description>Categories - Category - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="chrsbell.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
     <title>Chip-8</title>
-    <link>chrsbell.github.io/categories/chip-8/</link>
+    <link>/categories/chip-8/</link>
     <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/categories/chip-8/</guid>
+    <guid>/categories/chip-8/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>Serial Keyboard</title>
-    <link>chrsbell.github.io/categories/serial-keyboard/</link>
+    <link>/categories/serial-keyboard/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>chrsbell.github.io/categories/serial-keyboard/</guid>
+    <guid>/categories/serial-keyboard/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
