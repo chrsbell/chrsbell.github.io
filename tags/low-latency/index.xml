@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>low-latency - Tag - Chris Bell&#39;s Blog</title>
-        <link>/tags/low-latency/</link>
+        <link>http://chrsbell.github.io/tags/low-latency/</link>
         <description>low-latency - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Aug 2020 20:02:36 -0700</lastBuildDate><atom:link href="/tags/low-latency/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Aug 2020 20:02:36 -0700</lastBuildDate><atom:link href="http://chrsbell.github.io/tags/low-latency/" rel="self" type="application/rss+xml" /><item>
     <title>Designing a Serial Keyboard PCB</title>
-    <link>/designing-a-serial-keyboard/</link>
+    <link>http://chrsbell.github.io/designing-a-serial-keyboard/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
-    <guid>/designing-a-serial-keyboard/</guid>
+    <guid>http://chrsbell.github.io/designing-a-serial-keyboard/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featured-image.jpeg" referrerpolicy="no-referrer">
             </div><script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
