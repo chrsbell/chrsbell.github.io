@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Designing a Serial Keyboard PCB - Chris Bell&#39;s Blog</title><meta name="Description" content=""><meta property="og:title" content="Designing a Serial Keyboard PCB" />
+        <title>Designing a Serial Keyboard Circuit - Chris Bell&#39;s Blog</title><meta name="Description" content=""><meta property="og:title" content="Designing a Serial Keyboard Circuit" />
 <meta property="og:description" content="
 
 
@@ -69,7 +69,7 @@ This will be the first post in a hopefully not super long series documenting my 
 <meta property="article:modified_time" content="2020-09-06T18:31:31-07:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/featured-image.jpeg"/>
-<meta name="twitter:title" content="Designing a Serial Keyboard PCB"/>
+<meta name="twitter:title" content="Designing a Serial Keyboard Circuit"/>
 <meta name="twitter:description" content="
 
 
@@ -129,16 +129,16 @@ This will be the first post in a hopefully not super long series documenting my 
 <meta name="application-name" content="Chris Bell&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Chris Bell&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" /><link rel="next" href="https://chrsbell.github.io/2020/08/designing-a-chip8-emulator-in-python/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Designing a Serial Keyboard PCB",
+        "headline": "Designing a Serial Keyboard Circuit",
         "inLanguage": "",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/chrsbell.github.io\/2020\/08\/designing-a-serial-keyboard\/"
-        },"image": ["https:\/\/chrsbell.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "serial, keyboard, low-latency, pcb, design","wordcount":  622 ,
+        },"image": ["https:\/\/chrsbell.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "serial, keyboard, low-latency, pcb, design","wordcount":  973 ,
         "url": "https:\/\/chrsbell.github.io\/2020\/08\/designing-a-serial-keyboard\/","datePublished": "2020-08-23T20:02:36-07:00","dateModified": "2020-09-06T18:31:31-07:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Chris"},"author": {
@@ -213,10 +213,10 @@ This will be the first post in a hopefully not super long series documenting my 
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Designing a Serial Keyboard PCB</h1><h2 class="single-subtitle">How I designed an original printed circuit board</h2><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Designing a Serial Keyboard Circuit</h1><h2 class="single-subtitle">How I designed the circuit for a mini keyboard</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Chris</a></span>&nbsp;<span class="post-category">included in <a href="/categories/serial-keyboard/"><i class="far fa-folder fa-fw"></i>Serial Keyboard</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-23">2020-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;622 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-23">2020-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;973 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -237,6 +237,9 @@ This will be the first post in a hopefully not super long series documenting my 
         <li><a href="#usb-to-uart">USB-to-UART</a></li>
         <li><a href="#rgb-backlighting">RGB Backlighting</a></li>
         <li><a href="#rs232-converter">RS232 Converter</a></li>
+        <li><a href="#debouncing">Debouncing</a></li>
+        <li><a href="#power-and-oscillator">Power and Oscillator</a></li>
+        <li><a href="#complete-pcb">Complete PCB</a></li>
       </ul>
     </li>
   </ul>
@@ -297,8 +300,6 @@ This will be the first post in a hopefully not super long series documenting my 
 
 <p>Excited to try and get back into blogging!</p>
 <p>This will be the first post in a <em>hopefully</em> not super long series documenting my progress in building a very special mini keyboard.</p>
-</br>
-</br>
 <hr>
 <h2 id="about">About</h2>
 <div class="details admonition note open">
@@ -320,7 +321,7 @@ This will be the first post in a hopefully not super long series documenting my 
 <p>This serial keyboard project was based off of work I did last year on a <a href="https://github.com/chrsbell/PS-2-Mini" target="_blank" rel="noopener noreffer">very similar project</a>. The major difference is that this keyboard communicates with the PC, or host, using RS232. My previous project used PS/2; if you are interested, a great resource for the PS/2 protocol is available <a href="https://www.avrfreaks.net/sites/default/files/PS2%20Keyboard.pdf" target="_blank" rel="noopener noreffer">here</a>.</br></br></p>
 <hr>
 <h2 id="circuitry">Circuitry</h2>
-<p>My first step in designing the PCB for my keyboard was to pick a CAD program. There are many free and commercial programs available for this purpose, but the ones I&rsquo;m most familiar with are KiCAD and EAGLE. KiCAD has great support for hierarchical sheets and it&rsquo;s free so I went with that. At first, I designed the circuit without using hierarchioal sheets but later added them since I had extra time. Here are some before and after pics of the full circuit!</br></br></p>
+<p>My first step in designing the circuit for my keyboard was to pick a CAD program. There are many free and commercial programs available for this purpose, but the ones I&rsquo;m most familiar with are KiCAD and EAGLE. KiCAD has great support for hierarchical sheets and it&rsquo;s free so I went with that. At first, I designed the circuit without using hierarchical sheets but later added them since I had extra time. Here are some before and after pics of the full circuit!</br></br></p>
 <p>
 
 
@@ -384,6 +385,7 @@ This will be the first post in a hopefully not super long series documenting my 
   </figure>
 </div>
 
+<hr>
 <h3 id="rgb-backlighting">RGB Backlighting</h3>
 <p>The next new feature I attempted to implement was adjustable RGB backlighting. The first step in designing this circuit was to refresh my understanding of transistors. It took a bit of time, but I ended up using <a href="https://www.infineon.com/dgdl/irlml2060pbf.pdf?fileId=5546d462533600a401535664b7fb25ee" target="_blank" rel="noopener noreffer">IRLML2060</a> N-MOSFETs for each color. This transistor is operable with TTL logic levels and has a short enough time delay to drive the LEDs with PWM. I added <a href="https://www.mouser.com/datasheet/2/54/3352-776447.pdf" target="_blank" rel="noopener noreffer">two potentiometers</a> as well; one to control the hue of the LEDs, and one to control the brightness. I had a tough time deciding on LEDs but ended up using <a href="https://www.cree.com/led-components/media/documents/ds-CLVBA-FKA.pdf" target="_blank" rel="noopener noreffer">these fairly bright ones</a>.</p>
 
@@ -400,8 +402,55 @@ This will be the first post in a hopefully not super long series documenting my 
   </figure>
 </div>
 
+<hr>
 <h3 id="rs232-converter">RS232 Converter</h3>
-<p>While the on-chip UART devices allow for easy serial communication between TTL logic levels (typically around 3.3V), serial communication with a PC&rsquo;s serial port requires voltage levels which swing from ~$\pm$12V. The famous <a href="http://www.ti.com/lit/ds/symlink/max232.pdf" target="_blank" rel="noopener noreffer">MAX232 IC</a> takes care of this conversion, and I once again just used the example circuit with no modifications needed.</p>
+<p>While the on-chip UART devices allow for easy serial communication between TTL logic levels (typically around 3.3V), serial communication with a PC&rsquo;s serial port requires voltage levels which swing from ~$\pm$12V. The famous <a href="http://www.ti.com/lit/ds/symlink/max232.pdf" target="_blank" rel="noopener noreffer">MAX232 IC</a> takes care of this conversion, and I once again used the preexisting example circuit with no modifications needed.</p>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/blog/8-20/rs232-converter.jpg" alt="The RS232 conversion circuit"/>
+    </div>
+    <a href="/images/blog/8-20/rs232-converter.jpg" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>The RS232 conversion circuit</p>
+      </figcaption>
+  </figure>
+</div>
+
+<hr>
+<h3 id="debouncing">Debouncing</h3>
+<p>This circuit is responsible for <em>attempting</em> to reduce the largest source of keyboard latency for Cherry MX switches, switch bouncing.
+On debouncing:</p>
+<blockquote>
+<p>&ldquo;When the contacts of any mechanical switch bang together they rebound a bit before
+settling, causing bounce. <strong>Debouncing</strong>, of course, is the process of removing the bounces,
+of converting the brutish realities of the analog world into pristine ones and zeros. Both
+hardware and software solutions exist, though by far the most common are those done in
+a snippet of code.&rdquo;</p>
+<blockquote>
+<p><a href="https://my.eng.utah.edu/~cs5780/debouncing.pdf" target="_blank" rel="noopener noreffer">Jack Ganssle</a></p>
+</blockquote>
+</blockquote>
+<p>My goal with this circuit was to use hysteresis to reduce/eliminate logic changes due to switch bouncing. My previous project attempted to use hysteresis, but was flawed because of incorrect RC values and an incorrect hysteresis circuit. The updated circuit should behave as expected although I have yet to test it, and it was mostly taken from <a href="https://hackaday.com/2015/12/09/embed-with-elliot-debounce-your-noisy-buttons-part-i/" target="_blank" rel="noopener noreffer">this simple hysteresis circuit</a>. I adjusted the debounce time here to 0.1 ms versus the recommended 5 ms time for Cherry switches&hellip;we&rsquo;ll see how that goes.</p>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/blog/8-20/debounce.jpg" alt="The circuit responsible for the bulk of debouncing"/>
+    </div>
+    <a href="/images/blog/8-20/debounce.jpg" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>The circuit responsible for the bulk of debouncing</p>
+      </figcaption>
+  </figure>
+</div>
+
+<hr>
+<h3 id="power-and-oscillator">Power and Oscillator</h3>
+<p>These circuits are pretty unexciting and take care of the basics of providing 3.3V to the ICs and 100MHz to the microcontroller. After playing around with MPLAB Code Configurator, however, I think I might have misinterpreted how the microcontroller should be run at 100MHz. My initial assumption was that the microcontroller would play fine with a 100MHz external clock, but as shown in the below picture the max frequency for an external clock is 64MHz. The apparent solution to this would be to use a clock source with a PLL; an example is show in the second figure using the internal FRC clock. So I will probably need to use the internal FRC clock for this one.</p>
 
 
 
@@ -411,10 +460,49 @@ This will be the first post in a hopefully not super long series documenting my 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img" style="background-image: url('/images/blog/8-20/gallery-1/pcb-3d-top.jpeg');">
-      <img itemprop="thumbnail" src="/images/blog/8-20/gallery-1/pcb-3d-top.jpeg" alt="Top of PCB"/>
+    <div class="img" style="background-image: url('/images/blog/8-20/clock/external-clock.png');">
+      <img itemprop="thumbnail" src="/images/blog/8-20/clock/external-clock.png" alt="The maximum external clock frequency..."/>
     </div>
-    <a href="/images/blog/8-20/gallery-1/pcb-3d-top.jpeg" itemprop="contentUrl"></a>
+    <a href="/images/blog/8-20/clock/external-clock.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>The maximum external clock frequency...</p>
+      </figcaption>
+  </figure>
+</div>
+
+  
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/8-20/clock/pll.png');">
+      <img itemprop="thumbnail" src="/images/blog/8-20/clock/pll.png" alt="FRC with PLL can provide the expected 100MHz"/>
+    </div>
+    <a href="/images/blog/8-20/clock/pll.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>FRC with PLL can provide the expected 100MHz</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+</div>
+
+<hr>
+<h3 id="complete-pcb">Complete PCB</h3>
+<p>So here is the completed PCB! I skipped a few steps to get to this point, but hopefully in another post I can talk about the obstacles and decisions I made while designing the PCB.</p>
+
+
+
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-grow hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	  
+  
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/8-20/pcb-3d/pcb-3d-top.jpeg');">
+      <img itemprop="thumbnail" src="/images/blog/8-20/pcb-3d/pcb-3d-top.jpeg" alt="Top of PCB"/>
+    </div>
+    <a href="/images/blog/8-20/pcb-3d/pcb-3d-top.jpeg" itemprop="contentUrl"></a>
       <figcaption>
           <p>Top of PCB</p>
       </figcaption>
@@ -425,10 +513,10 @@ This will be the first post in a hopefully not super long series documenting my 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img" style="background-image: url('/images/blog/8-20/gallery-1/pcb-3d-bottom.jpeg');">
-      <img itemprop="thumbnail" src="/images/blog/8-20/gallery-1/pcb-3d-bottom.jpeg" alt="Bottom of PCB"/>
+    <div class="img" style="background-image: url('/images/blog/8-20/pcb-3d/pcb-3d-bottom.jpeg');">
+      <img itemprop="thumbnail" src="/images/blog/8-20/pcb-3d/pcb-3d-bottom.jpeg" alt="Bottom of PCB"/>
     </div>
-    <a href="/images/blog/8-20/gallery-1/pcb-3d-bottom.jpeg" itemprop="contentUrl"></a>
+    <a href="/images/blog/8-20/pcb-3d/pcb-3d-bottom.jpeg" itemprop="contentUrl"></a>
       <figcaption>
           <p>Bottom of PCB</p>
       </figcaption>
@@ -448,7 +536,7 @@ This will be the first post in a hopefully not super long series documenting my 
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-title="Designing a Serial Keyboard PCB" data-via="thechrsbell" data-hashtags="serial,keyboard,low-latency,pcb,design"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-hashtag="serial"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-title="Designing a Serial Keyboard PCB"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-title="Designing a Serial Keyboard PCB" data-image="featured-image.jpeg"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-title="Designing a Serial Keyboard Circuit" data-via="thechrsbell" data-hashtags="serial,keyboard,low-latency,pcb,design"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-hashtag="serial"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-title="Designing a Serial Keyboard Circuit"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" data-title="Designing a Serial Keyboard Circuit" data-image="featured-image.jpeg"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -460,8 +548,7 @@ This will be the first post in a hopefully not super long series documenting my 
         </section>
     </div>
 
-    <div class="post-nav">
-            <a href="/2020/08/designing-a-chip8-emulator-in-python/" class="next" rel="next" title="Designing a Chip-8 Emulator in Python">Designing a Chip-8 Emulator in Python<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
@@ -477,5 +564,5 @@ This will be the first post in a hopefully not super long series documenting my 
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"gitalk":{"admin":["chrsbell"],"clientID":"e08bafb7ffbb327d6f67","clientSecret":"8496f5e867afedc107a2f2684bc3699449485d33","id":"2020-08-23T20:02:36-07:00","owner":"chrsbell","repo":"Hugo-Comments","title":"Designing a Serial Keyboard PCB"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"gitalk":{"admin":["chrsbell"],"clientID":"e08bafb7ffbb327d6f67","clientSecret":"8496f5e867afedc107a2f2684bc3699449485d33","id":"2020-08-23T20:02:36-07:00","owner":"chrsbell","repo":"Hugo-Comments","title":"Designing a Serial Keyboard Circuit"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"595E1EHR1Y","algoliaIndex":"index.en","algoliaSearchKey":"0556e7de9ed76587a1091f5cfd834b26","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
