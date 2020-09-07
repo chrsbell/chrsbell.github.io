@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Chip-8 - Category - Chris Bell&#39;s Blog</title>
+        <link>https://chrsbell.github.io/categories/chip-8/</link>
+        <description>Chip-8 - Category - Chris Bell&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/categories/chip-8/" rel="self" type="application/rss+xml" /><item>
+    <title>Designing a Chip-8 Emulator in Python</title>
+    <link>https://chrsbell.github.io/2020/08/designing-a-chip8-emulator-in-python/</link>
+    <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/2020/08/designing-a-chip8-emulator-in-python/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featured-image.jpeg" referrerpolicy="no-referrer">
+            </div>                             ]]></description>
+</item></channel>
+</rss>
