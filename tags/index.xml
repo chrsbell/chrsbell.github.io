@@ -3,7 +3,28 @@
         <title>Tags - Tag - Chris Bell&#39;s Blog</title>
         <link>https://chrsbell.github.io/tags/</link>
         <description>Tags - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Sep 2020 15:21:33 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>chip-8</title>
+    <link>https://chrsbell.github.io/tags/chip-8/</link>
+    <pubDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/chip-8/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>emulator</title>
+    <link>https://chrsbell.github.io/tags/emulator/</link>
+    <pubDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/emulator/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>python</title>
+    <link>https://chrsbell.github.io/tags/python/</link>
+    <pubDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/python/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>bootcamp</title>
     <link>https://chrsbell.github.io/tags/bootcamp/</link>
     <pubDate>Sun, 13 Sep 2020 15:21:33 -0700</pubDate>
@@ -51,13 +72,6 @@
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
     <author>Author</author>
     <guid>https://chrsbell.github.io/tags/pcb/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>serial</title>
-    <link>https://chrsbell.github.io/tags/serial/</link>
-    <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/serial/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

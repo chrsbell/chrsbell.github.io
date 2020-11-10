@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Designing a Chip-8 Emulator in Python - Chris Bell&#39;s Blog</title><meta name="Description" content=""><meta property="og:title" content="Designing a Chip-8 Emulator in Python" />
+<meta property="og:description" content="
+
+
+
+
+
+
+
+
+
+    
+    
+      
+      
+      
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+            
+          
+        
+      
+    
+    
+      
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+
+
+Emulating in Python!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" />
+<meta property="og:image" content="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/featured-image.jpeg"/>
+<meta property="article:published_time" content="2020-11-10T04:47:09+00:00" />
+<meta property="article:modified_time" content="2020-11-09T20:51:20-08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/featured-image.jpeg"/>
+<meta name="twitter:title" content="Designing a Chip-8 Emulator in Python"/>
+<meta name="twitter:description" content="
+
+
+
+
+
+
+
+
+
+    
+    
+      
+      
+      
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+            
+          
+        
+      
+    
+    
+      
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+
+
+Emulating in Python!"/>
+<meta name="application-name" content="Chris Bell&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Chris Bell&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" /><link rel="prev" href="https://chrsbell.github.io/2020/09/hack-reactor-week12/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Designing a Chip-8 Emulator in Python",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/chrsbell.github.io\/2020\/11\/designing-a-chip8-emulator-in-python\/"
+        },"image": ["https:\/\/chrsbell.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "python, emulator, chip-8","wordcount":  909 ,
+        "url": "https:\/\/chrsbell.github.io\/2020\/11\/designing-a-chip8-emulator-in-python\/","datePublished": "2020-11-10T04:47:09+00:00","dateModified": "2020-11-09T20:51:20-08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Chris"},"author": {
+                "@type": "Person",
+                "name": "Chris"
+            },"description": ""
+    }
+    </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177419861-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </head>
+    <body header-desktop="normal" header-mobile="normal"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chris Bell&#39;s Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/"> Home </a><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chris Bell&#39;s Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/" title="">Home</a><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Designing a Chip-8 Emulator in Python</h1><h2 class="single-subtitle">How I wrote a simple emulator</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Chris</a></span>&nbsp;<span class="post-category">included in <a href="/categories/chip-8/"><i class="far fa-folder fa-fw"></i>Chip-8</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-10">2020-11-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;909 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="featured-image.jpeg"
+        data-srcset="/2020/11/designing-a-chip8-emulator-in-python/featured-image.jpeg, featured-image.jpeg 1.5x, /2020/11/designing-a-chip8-emulator-in-python/featured-image.jpeg 2x"
+        data-sizes="auto"
+        alt="/2020/11/designing-a-chip8-emulator-in-python/featured-image.jpeg"
+        title="/2020/11/designing-a-chip8-emulator-in-python/featured-image.jpeg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#project-phases">Project Phases</a>
+      <ul>
+        <li><a href="#rendering-graphics">Rendering Graphics</a></li>
+        <li><a href="#interpreting-instructions">Interpreting Instructions</a></li>
+        <li><a href="#timing">Timing</a></li>
+        <li><a href="#closing-comments">Closing Comments</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<p>Emulating in Python!</p>
+</br>
+<p>Note: I am by no means an expert or fluent with Python, and prior to this project I hadn&rsquo;t used it since taking a computer science class many years ago.
+</br></br>
+Before starting my immersive at Hack Reactor, I decided to try and build an emulator! <!--more-->I got the idea for the project from <a href="https://github.com/danistefanovic/build-your-own-x" target="_blank" rel="noopener noreffer">this large collection of project ideas</a>, and while GameBoy was a tempting prospect to emulate I quickly realized how much time it would take to complete one. So I went with the much simpler Chip-8.
+</br></p>
+<hr>
+<h2 id="project-phases">Project Phases</h2>
+</br>
+<h3 id="rendering-graphics">Rendering Graphics</h3>
+<p>This was my first time really diving into how emulation worked, and doing it in a relatively new language for me was also a challenge. I spent a few days refreshing my knowledge of Python by watching tutorial videos and once I felt that I had the essential fundamentals down, I started by writing a rendering class.
+</br></br>
+I&rsquo;d done a lot of OpenGL based rendering in high school so I decided to go with what I was familiar with and write a simple class which could toggle virtual &lsquo;pixels&rsquo; on the screen. The Chip-8 language uses a 64x32 monochrome display, so I mapped each corresponding section of the emulator window to a pixel.
+</br></br>
+Since I was using Modern OpenGL (i.e. shaders and vertex buffer objects), I was able to access and toggle each pixel as needed by obtaining an offset into the virtual screen&rsquo;s color VBO and then writing either &lsquo;0&rsquo; or &lsquo;1&rsquo; with <code>glBufferSubData</code> to represent that pixel&rsquo;s state.
+I decided to keep it simple by representing each virtual pixel as a set of 4 vertices and rendering the data as <code>GL_QUADS</code>, but further optimization using <code>GL_TRIANGLES</code> or <code>GL_TRIANGLE_STRIP</code> could significantly reduce the vertex count.
+</br></br></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>The set pixel function<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><script type="application/javascript" src="https://gist.github.com/chrsbell/a8f448fef0e71da4f67d4ffb8b419cff.js"></script></div>
+        </div>
+    </div>
+<h3 id="interpreting-instructions">Interpreting Instructions</h3>
+<p>After having a solid rendering class, I jumped straight into writing the Chip-8 interpreter.
+<br/></br>
+Taken straight from <a href="http://devernay.free.fr/hacks/chip8/C8TECH10.HTM" target="_blank" rel="noopener noreffer">Cowgod&rsquo;s Chip-8 technical reference</a>, the structure of the Chip-8&rsquo;s RAM should look like this:</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>The RAM structure of the Chip-8 interpreter<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+---------------+= 0xFFF (4095) End of Chip-8 RAM
+|               |
+|               |
+|               |
+|               |
+|               |
+| 0x200 to 0xFFF|
+|     Chip-8    |
+| Program / Data|
+|     Space     |
+|               |
+|               |
+|               |
++- - - - - - - -+= 0x600 (1536) Start of ETI 660 Chip-8 programs
+|               |
+|               |
+|               |
++---------------+= 0x200 (512) Start of most Chip-8 programs
+| 0x000 to 0x1FF|
+| Reserved for  |
+|  interpreter  |
++---------------+= 0x000 (0) Start of Chip-8 RAM
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<p></br></br>
+Each Chip-8 instruction is 2-bytes long, however, so to successfully load a ROM I had to cut each opcode in half and insert it into the emulator&rsquo;s memory starting at 0x200 that way.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>The opcode loading function<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><script type="application/javascript" src="https://gist.github.com/chrsbell/b8e754e29d22361933bdd55570543c07.js"></script></div>
+        </div>
+    </div>
+<p>Next I had to figure out a way to map each of the 36 opcodes to a corresponding function. This turned out to be challenging in that different instructions contain variables in their names to represent targeted bits of the instruction.
+</br></br>
+For example, one instruction might be <strong>8FA0</strong> and need to be mapped to <strong>8xy0</strong>, where x represents the lowest 4 bits of the upper half of the opcode and y represents the upper 4 bits of the lower half of the opcode. Creating a hashing function which worked for all 36 opcodes took a good while to figure out, but once I had it working I was able to simply write out all of the necessary opcode functions.
+</br></br>
+
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/blog/11-8/hash.png" alt="Mapping each opcode to a function for easy instruction lookup"/>
+    </div>
+    <a href="/images/blog/11-8/hash.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Mapping each opcode to a function for easy instruction lookup</p>
+      </figcaption>
+  </figure>
+</div>
+
+</br></br>
+The most difficult instruction to write was definitely <strong>Dxyn</strong> or the draw instruction. Chip-8 represents sprites, or pictures, as bytes of data such that an individual bit corresponds to a pixel on the virtual screen. Rendering these sprites involves performing bitwise logic on the screen itself as well as checking for sprite collisions and setting the appropriate bit.
+</br></br>
+The remainder instructions were mostly math and performing bitwise logic, so they were fairly straightforward. The instructions handling subroutines were a bit confusing for me at first, but I&rsquo;d say they really solidified my understanding of how a simple call stack works.</p>
+<h3 id="timing">Timing</h3>
+<p>The first iteration of my emulator was&hellip;super slow. Even when I increased my FPS limiter to 240, I found every game to be unplayable. I spent more time than I&rsquo;d like to admit troubleshooting this problem, but it turned out the way I coupled interpreter logic with rendering was not viable at all. I solved the issue by adding a <code>num_cycles</code> variable to my interpreter to adjust the number of instructions executed before re-rendering the window.
+</br></br>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>The fix to my playability issues<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><script type="application/javascript" src="https://gist.github.com/chrsbell/2ac5cb699307fceb1e6e802a8a39fbbf.js"></script></div>
+        </div>
+    </div></p>
+<p></br></br></p>
+<p>Another challenge I faced was generating audio of a variable length for the sound timer opcode. While I could have used an audio file and stopped/started playing it as necessary, I decided to use the <a href="simpleaudio" rel="">https://pypi.org/project/simpleaudio/</a> library with NumPy to generate and play square waves of variable length.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>This is the whole class<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><script type="application/javascript" src="https://gist.github.com/chrsbell/e50ea6179d49e9b44ddc9f8ee261eb62.js"></script></div>
+        </div>
+    </div>
+<h3 id="closing-comments">Closing Comments</h3>
+<p>There are some other features I touched on while working on the emulator that I didn&rsquo;t fully implement, such as remappable keyboard input and saving/loading ROM states. All in all this was an incredibly fun mini project and I would love to tackle Game Boy emulation sometime, preferably in JavaScript!
+</br></br>
+Finally, here is a quick demo video:
+</br></br></p>
+<p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/iDq2hOtcp-c" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</br></br>
+<a href="https://github.com/chrsbell/Chip8Emulator" target="_blank" rel="noopener noreffer">The full source is available here!</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-11-09&nbsp;<a class="git-hash" href="https://github.com/chrsbell/Hugo-Blog/commit/02796b01285980777af0731835b58d34528857b2" target="_blank" title="commit by Chris Bell(chrisbell.dev@gmail.com) 02796b01285980777af0731835b58d34528857b2: Add new post">
+                                    <i class="fas fa-hashtag fa-fw"></i>02796b0</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" data-title="Designing a Chip-8 Emulator in Python" data-via="thechrsbell" data-hashtags="python,emulator,chip-8"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" data-hashtag="python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" data-title="Designing a Chip-8 Emulator in Python"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" data-title="Designing a Chip-8 Emulator in Python" data-image="featured-image.jpeg"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">python</a>,&nbsp;<a href="/tags/emulator/">emulator</a>,&nbsp;<a href="/tags/chip-8/">chip-8</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/09/hack-reactor-week12/" class="prev" rel="prev" title="My Hack Reactor Experience up to Week 4"><i class="fas fa-angle-left fa-fw"></i>My Hack Reactor Experience up to Week 4</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chris Bell</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"gitalk":{"admin":["chrsbell"],"clientID":"e08bafb7ffbb327d6f67","clientSecret":"8496f5e867afedc107a2f2684bc3699449485d33","id":"2020-11-10T04:47:09.883Z","owner":"chrsbell","repo":"Hugo-Comments","title":"Designing a Chip-8 Emulator in Python"}},"search":{"algoliaAppID":"595E1EHR1Y","algoliaIndex":"index.en","algoliaSearchKey":"0556e7de9ed76587a1091f5cfd834b26","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script src="/js/load-photoswipe.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+        
+    </body>
+</html>

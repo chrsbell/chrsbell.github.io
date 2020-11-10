@@ -3,14 +3,63 @@
         <title>Chip-8 - Category - Chris Bell&#39;s Blog</title>
         <link>https://chrsbell.github.io/categories/chip-8/</link>
         <description>Chip-8 - Category - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 21:52:13 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/categories/chip-8/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</lastBuildDate><atom:link href="https://chrsbell.github.io/categories/chip-8/" rel="self" type="application/rss+xml" /><item>
     <title>Designing a Chip-8 Emulator in Python</title>
-    <link>https://chrsbell.github.io/2020/08/designing-a-chip8-emulator-in-python/</link>
-    <pubDate>Sun, 30 Aug 2020 21:52:13 -0700</pubDate>
+    <link>https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/</link>
+    <pubDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://chrsbell.github.io/2020/08/designing-a-chip8-emulator-in-python/</guid>
+    <guid>https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featured-image.jpeg" referrerpolicy="no-referrer">
-            </div>Hi]]></description>
+            </div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<p>Emulating in Python!</p>]]></description>
 </item></channel>
 </rss>
