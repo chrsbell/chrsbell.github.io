@@ -306,7 +306,7 @@ if (!doNotTrack) {
             <i class="icon fas fa-pencil-alt fa-fw"></i>What is this?<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">A three key keyboard, just like the one you use to type. The primary goal of this keyboard is to achieve the lowest input latency I possibly can using standard Cherry MX switches.</div>
+            <div class="admonition-content">A three-key keyboard, just like the one you use to type. The primary goal of this keyboard is to achieve the lowest input latency I possibly can using standard Cherry MX switches.</div>
         </div>
     </div>
 <div class="details admonition note open">
@@ -314,10 +314,10 @@ if (!doNotTrack) {
             <i class="icon fas fa-pencil-alt fa-fw"></i>Why only three keys?<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">I personally only need 2-3 keys to make good use of this keyboard in the rhythm game I play, osu! It should be possible to scale the design up to a full size keyboard, but would take longer and cost much more.</div>
+            <div class="admonition-content">I personally only need 2-3 keys to make good use of this keyboard in the rhythm game I play, osu! It should be possible to scale the design up to a full-size keyboard, but this would take longer and cost much more.</div>
         </div>
     </div>
-<p>This serial keyboard project was based off of work I did last year on a <a href="https://github.com/chrsbell/PS-2-Mini" target="_blank" rel="noopener noreffer">very similar project</a>. The major difference is that this keyboard communicates with the PC, or host, using RS232. My previous project used PS/2; if you are interested, a great resource for the PS/2 protocol is available <a href="https://www.avrfreaks.net/sites/default/files/PS2%20Keyboard.pdf" target="_blank" rel="noopener noreffer">here</a>.</br></br></p>
+<p>This serial keyboard project was based on some work I did last year on a <a href="https://github.com/chrsbell/PS-2-Mini" target="_blank" rel="noopener noreffer">very similar project</a>. The major difference is that this keyboard communicates with the PC, or host, using RS232. My previous project used PS/2; if you are interested, a great resource for the PS/2 protocol is available <a href="https://www.avrfreaks.net/sites/default/files/PS2%20Keyboard.pdf" target="_blank" rel="noopener noreffer">here</a>.</br></br></p>
 <hr>
 <h2 id="circuitry">Circuitry</h2>
 <p>My first step in designing the circuit for my keyboard was to pick a CAD program. There are many free and commercial programs available for this purpose, but the ones I&rsquo;m most familiar with are KiCAD and EAGLE. KiCAD has great support for hierarchical sheets and it&rsquo;s free so I went with that. At first, I designed the circuit without using hierarchical sheets but later added them since I had extra time. Here are some before and after pics of the full circuit!</br></br></p>
@@ -326,7 +326,7 @@ if (!doNotTrack) {
 
 <div class="gallery caption-position-bottom caption-effect-fade hover-effect-grow hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
 	  
-  
+
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -340,7 +340,7 @@ if (!doNotTrack) {
   </figure>
 </div>
 
-  
+
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -357,16 +357,16 @@ if (!doNotTrack) {
 
 </div>
 </br></br></p>
-<p>There were a few new features I wanted to include in my serial mini keyboard which required me make good use of Google. The biggest feature I wanted to add was bootloader support.</p>
+<p>There were a few new features I wanted to include in my serial mini keyboard which required me to make good use of Google. The biggest feature I wanted to add was bootloader support.</p>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-pencil-alt fa-fw"></i>What&#39;s a bootloader?<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">Basically, a bootloader is an onchip program that handles loading a target application. This allows convenient firmware updates over USB, as the bootloader can communicate with a PC host application to change the on-keyboard firmware.</div>
+            <div class="admonition-content">Basically, a bootloader is an on-chip program that handles loading a target application. This allows convenient firmware updates over USB, as the bootloader can communicate with a PC host application to change the on-keyboard firmware.</div>
         </div>
     </div>
-<p>The microprocessor I chose for my keyboard, a <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/dsPIC33CK64MP105-Family-Data-Sheetg-DS70005363D.pdf" target="_blank" rel="noopener noreffer">16-bit dsPIC</a>, was a mostly arbitrary pick&hellip;I had many leftover from my previous projects. The main thing to note is that this microprocessor includes 3 on-chip UARTs. These are devices used for serial communication, the whole purpose of the serial keyboard. I decided to use one on-chip UART device to communicate with the PC for firmware updates, and another UART to send keystrokes.</br></br></p>
+<p>The microprocessor I chose for my keyboard, a <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/dsPIC33CK64MP105-Family-Data-Sheetg-DS70005363D.pdf" target="_blank" rel="noopener noreffer">16-bit dsPIC</a>, was a mostly arbitrary pick&hellip;I had many leftovers from my previous projects. The main thing to note is that this microprocessor includes 3 on-chip UARTs. These are devices used for serial communication, the whole purpose of the serial keyboard. I decided to use one on-chip UART device to communicate with the PC for firmware updates, and another UART to send keystrokes.</br></br></p>
 <hr>
 <h3 id="usb-to-uart">USB-to-UART</h3>
 <p>To receive and send USB data for keyboard firmware updates, I used the <a href="https://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT230X.pdf" target="_blank" rel="noopener noreffer">FT230XQ</a> USB-to-UART IC. The finished circuit for USB communication was pretty straightforward, I just used the suggested circuit from the datasheet with an added LED status indicator and additional ESD protection.</p>
@@ -403,7 +403,7 @@ if (!doNotTrack) {
 
 <hr>
 <h3 id="rs232-converter">RS232 Converter</h3>
-<p>While the on-chip UART devices allow for easy serial communication between TTL logic levels (typically around 3.3V), serial communication with a PC&rsquo;s serial port requires voltage levels which swing from ~$\pm$12V. The famous <a href="http://www.ti.com/lit/ds/symlink/max232.pdf" target="_blank" rel="noopener noreffer">MAX232 IC</a> takes care of this conversion, and I once again used the preexisting example circuit with no modifications needed.</p>
+<p>While the on-chip UART devices allow for easy serial communication between TTL logic levels (typically around 3.3V), serial communication with a PC&rsquo;s serial port requires voltage levels that swing from ~$\pm$12V. The famous <a href="http://www.ti.com/lit/ds/symlink/max232.pdf" target="_blank" rel="noopener noreffer">MAX232 IC</a> takes care of this conversion, and I once again used the preexisting example circuit with no modifications needed.</p>
 
 
 <div class="box" >
@@ -432,7 +432,7 @@ a snippet of code.&rdquo;</p>
 <p><a href="https://my.eng.utah.edu/~cs5780/debouncing.pdf" target="_blank" rel="noopener noreffer">Jack Ganssle</a></p>
 </blockquote>
 </blockquote>
-<p>My goal with this circuit was to use hysteresis to reduce/eliminate logic changes due to switch bouncing. My previous project attempted to use hysteresis, but was flawed because of incorrect RC values and an incorrect hysteresis circuit. The updated circuit should behave as expected although I have yet to test it, and it was mostly taken from <a href="https://hackaday.com/2015/12/09/embed-with-elliot-debounce-your-noisy-buttons-part-i/" target="_blank" rel="noopener noreffer">this simple hysteresis circuit</a>. I adjusted the debounce time here to 0.1 ms versus the recommended 5 ms time for Cherry switches&hellip;we&rsquo;ll see how that goes.</p>
+<p>My goal with this circuit was to use hysteresis to reduce/eliminate logic changes due to switch bouncing. My previous project attempted to use hysteresis but was flawed because of incorrect RC values and an incorrect hysteresis circuit. The updated circuit should behave as expected although I have yet to test it, and it was mostly taken from <a href="https://hackaday.com/2015/12/09/embed-with-elliot-debounce-your-noisy-buttons-part-i/" target="_blank" rel="noopener noreffer">this simple hysteresis circuit</a>. I adjusted the debounce time here to 0.1 ms versus the recommended 5 ms time for Cherry switches&hellip;we&rsquo;ll see how that goes.</p>
 
 
 <div class="box" >
@@ -449,13 +449,13 @@ a snippet of code.&rdquo;</p>
 
 <hr>
 <h3 id="power-and-oscillator">Power and Oscillator</h3>
-<p>These circuits are pretty unexciting and take care of the basics of providing 3.3V to the ICs and 100MHz to the microcontroller. After playing around with MPLAB Code Configurator, however, I think I might have misinterpreted how the microcontroller should be run at 100MHz. My initial assumption was that the microcontroller would play fine with a 100MHz external clock, but as shown in the below picture the max frequency for an external clock is 64MHz. The apparent solution to this would be to use a clock source with a PLL; an example is show in the second figure using the internal FRC clock. So I will probably need to use the internal FRC clock for this one.</p>
+<p>These circuits are pretty unexciting and take care of the basics of providing 3.3V to the ICs and 100MHz to the microcontroller. After playing around with MPLAB Code Configurator, however, I think I might have misinterpreted how the microcontroller should be run at 100MHz. My initial assumption was that the microcontroller would play fine with a 100MHz external clock, but as shown in the picture below the max frequency for an external clock is 64MHz. The apparent solution to this would be to use a clock source with a PLL; an example is shown in the second figure using the internal FRC clock. So I will probably need to use the internal FRC clock for this one.</p>
 
 
 
 <div class="gallery caption-position-bottom caption-effect-fade hover-effect-grow hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
 	  
-  
+
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -469,7 +469,7 @@ a snippet of code.&rdquo;</p>
   </figure>
 </div>
 
-  
+
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -488,13 +488,13 @@ a snippet of code.&rdquo;</p>
 
 <hr>
 <h3 id="complete-pcb">Complete PCB</h3>
-<p>So here is the completed PCB! I skipped a few steps to get to this point, but hopefully in another post I can talk about the obstacles and decisions I made while designing the PCB.</p>
+<p>So here is the completed PCB! I skipped a few steps to get to this point, but hopefully, in another post, I can talk about the obstacles and decisions I made while designing the PCB.</p>
 
 
 
 <div class="gallery caption-position-bottom caption-effect-fade hover-effect-grow hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
 	  
-  
+
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -508,7 +508,7 @@ a snippet of code.&rdquo;</p>
   </figure>
 </div>
 
-  
+
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
