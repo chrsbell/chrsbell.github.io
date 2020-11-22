@@ -3,7 +3,49 @@
         <title>Tags - Tag - Chris Bell&#39;s Blog</title>
         <link>https://chrsbell.github.io/tags/</link>
         <description>Tags - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>design</title>
+    <link>https://chrsbell.github.io/tags/design/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/design/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>keyboard</title>
+    <link>https://chrsbell.github.io/tags/keyboard/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/keyboard/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>linux</title>
+    <link>https://chrsbell.github.io/tags/linux/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>low-latency</title>
+    <link>https://chrsbell.github.io/tags/low-latency/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/low-latency/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>pcb</title>
+    <link>https://chrsbell.github.io/tags/pcb/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/pcb/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>serial</title>
+    <link>https://chrsbell.github.io/tags/serial/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/tags/serial/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>chip-8</title>
     <link>https://chrsbell.github.io/tags/chip-8/</link>
     <pubDate>Tue, 10 Nov 2020 04:47:09 &#43;0000</pubDate>
@@ -30,48 +72,6 @@
     <pubDate>Sun, 13 Sep 2020 15:21:33 -0700</pubDate>
     <author>Author</author>
     <guid>https://chrsbell.github.io/tags/bootcamp/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>hack-reactor</title>
-    <link>https://chrsbell.github.io/tags/hack-reactor/</link>
-    <pubDate>Sun, 13 Sep 2020 15:21:33 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/hack-reactor/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>pair-programming</title>
-    <link>https://chrsbell.github.io/tags/pair-programming/</link>
-    <pubDate>Sun, 13 Sep 2020 15:21:33 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/pair-programming/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>design</title>
-    <link>https://chrsbell.github.io/tags/design/</link>
-    <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/design/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>keyboard</title>
-    <link>https://chrsbell.github.io/tags/keyboard/</link>
-    <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/keyboard/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>low-latency</title>
-    <link>https://chrsbell.github.io/tags/low-latency/</link>
-    <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/low-latency/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>pcb</title>
-    <link>https://chrsbell.github.io/tags/pcb/</link>
-    <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>
-    <author>Author</author>
-    <guid>https://chrsbell.github.io/tags/pcb/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

@@ -3,7 +3,65 @@
         <title>design - Tag - Chris Bell&#39;s Blog</title>
         <link>https://chrsbell.github.io/tags/design/</link>
         <description>design - Tag - Chris Bell&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Aug 2020 20:02:36 -0700</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/design/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</lastBuildDate><atom:link href="https://chrsbell.github.io/tags/design/" rel="self" type="application/rss+xml" /><item>
+    <title>Serial Keyboard Update #1</title>
+    <link>https://chrsbell.github.io/2020/12/serial-mini-update1/</link>
+    <pubDate>Mon, 07 Dec 2020 02:09:08 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://chrsbell.github.io/2020/12/serial-mini-update1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featured-image.jpeg" referrerpolicy="no-referrer">
+            </div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<p>Retroactive performance data and PCB design decisions.</p>]]></description>
+</item><item>
     <title>Designing a Serial Keyboard Circuit</title>
     <link>https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/</link>
     <pubDate>Sun, 23 Aug 2020 20:02:36 -0700</pubDate>

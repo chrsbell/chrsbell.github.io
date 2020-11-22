@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Serial Keyboard Update #1 - Chris Bell&#39;s Blog</title><meta name="Description" content=""><meta property="og:title" content="Serial Keyboard Update #1" />
+<meta property="og:description" content="
+
+
+
+
+
+
+
+
+
+    
+    
+      
+      
+      
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+            
+          
+        
+      
+    
+    
+      
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+
+
+Retroactive performance data and PCB design decisions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chrsbell.github.io/2020/12/serial-mini-update1/" />
+<meta property="og:image" content="https://chrsbell.github.io/2020/12/serial-mini-update1/featured-image.jpeg"/>
+<meta property="article:published_time" content="2020-12-07T02:09:08+00:00" />
+<meta property="article:modified_time" content="2020-12-07T00:08:20-05:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://chrsbell.github.io/2020/12/serial-mini-update1/featured-image.jpeg"/>
+<meta name="twitter:title" content="Serial Keyboard Update #1"/>
+<meta name="twitter:description" content="
+
+
+
+
+
+
+
+
+
+    
+    
+      
+      
+      
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          
+            
+          
+        
+      
+    
+    
+      
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+
+
+Retroactive performance data and PCB design decisions."/>
+<meta name="application-name" content="Chris Bell&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Chris Bell&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://chrsbell.github.io/2020/12/serial-mini-update1/" /><link rel="prev" href="https://chrsbell.github.io/2020/11/designing-a-chip8-emulator-in-python/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Serial Keyboard Update #1",
+        "inLanguage": "",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/chrsbell.github.io\/2020\/12\/serial-mini-update1\/"
+        },"image": ["https:\/\/chrsbell.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "serial, keyboard, low-latency, pcb, design, linux","wordcount":  697 ,
+        "url": "https:\/\/chrsbell.github.io\/2020\/12\/serial-mini-update1\/","datePublished": "2020-12-07T02:09:08+00:00","dateModified": "2020-12-07T00:08:20-05:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Chris"},"author": {
+                "@type": "Person",
+                "name": "Chris"
+            },"description": ""
+    }
+    </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-177419861-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </head>
+    <body header-desktop="normal" header-mobile="normal"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Chris Bell&#39;s Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/"> Home </a><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Chris Bell&#39;s Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/" title="">Home</a><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Serial Keyboard Update #1</h1><h2 class="single-subtitle">Time for a project update</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Chris</a></span>&nbsp;<span class="post-category">included in <a href="/categories/serial-keyboard/"><i class="far fa-folder fa-fw"></i>Serial Keyboard</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-07">2020-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;697 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="featured-image.jpeg"
+        data-srcset="/2020/12/serial-mini-update1/featured-image.jpeg, featured-image.jpeg 1.5x, /2020/12/serial-mini-update1/featured-image.jpeg 2x"
+        data-sizes="auto"
+        alt="/2020/12/serial-mini-update1/featured-image.jpeg"
+        title="/2020/12/serial-mini-update1/featured-image.jpeg" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#contents">Contents</a>
+      <ul>
+        <li><a href="#size">Size</a></li>
+        <li><a href="#pcb-layout">PCB Layout</a></li>
+        <li><a href="#retroactive-measurements">Retroactive measurements</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<p>Retroactive performance data and PCB design decisions.</p>
+</br>
+<p><a href="https://chrsbell.github.io/2020/08/designing-a-serial-keyboard/" target="_blank" rel="noopener noreffer">In my previous post</a> I discussed the circuitry of my mini serial keyboard, so I thought it would be a good idea to give a brief overview of some of the decisions I made while designing the PCB. I also talk about my initial latency measurements from last year. Note that I am not an electrical engineer by trade and am open to suggestions for improvement.</p>
+<hr>
+<h2 id="contents">Contents</h2>
+</br>
+<h3 id="size">Size</h3>
+<p>One of the major flaws of my old mini PS/2 keyboard was its size. Here is what the first edition looked like:</p>
+
+
+
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-grow hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	  
+
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/12-6/board-back.jpg');">
+      <img itemprop="thumbnail" src="/images/blog/12-6/board-back.jpg" alt="The back"/>
+    </div>
+    <a href="/images/blog/12-6/board-back.jpg" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>The back</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/12-6/board-front.jpg');">
+      <img itemprop="thumbnail" src="/images/blog/12-6/board-front.jpg" alt="The front"/>
+    </div>
+    <a href="/images/blog/12-6/board-front.jpg" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>The front</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+</div>
+
+</br>
+<p>While it was pretty fun and challenging to design such a small keyboard, using it was difficult. The case I printed for it was not stable and the keyboard would slide around while typing. So I nearly doubled the height and increased the width of my PCB to a size I found to be suitably stable.</p>
+</br>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/blog/12-6/size-comparison.jpg" alt="Size comparison between the first and latest mini keyboard iterations, from left to right"/>
+    </div>
+    <a href="/images/blog/12-6/size-comparison.jpg" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Size comparison between the first and latest mini keyboard iterations, from left to right</p>
+      </figcaption>
+  </figure>
+</div>
+
+</br>
+<hr>
+<h3 id="pcb-layout">PCB Layout</h3>
+<p>For the PCB, I decided to use a single ground plane on the opposite side of my power and signal traces with minimal cross-over to ensure each signal had a clear return path. I wanted to better follow the return path of each trace and isolate areas of potential noise and interference, especially on the USB and TTL signals.</p>
+</br>
+<p>The LEDs make up the bulk of the power usage in this design, so I connected them all to the USB&rsquo;s 5V line with calculated resistors. This way, I could minimize the strain on the 300mA 3.3V regulator. The MAX232, FT230, dsPIC, and Schmitt inverter all draw a minimal amount of current comparatively, but I used a 12 mil width on all of my power traces anyways to distinguish them from my signal traces. Lastly, I placed decoupling capacitors close to each IC and the ESD protection close to the USB port. For the curious, <a href="https://www.signalintegrityjournal.com/blogs/12-fundamentals/post/1207-seven-habits-of-successful-2-layer-board-designers" target="_blank" rel="noopener noreffer">here is a nice article I referenced in my design</a>.</p>
+<hr>
+<h3 id="retroactive-measurements">Retroactive measurements</h3>
+<p>Although I&rsquo;m working on a dedicated PCB for my serial keyboard, I actually first tested the idea by altering my old PS/2 mini keyboard. Instead of sending PS/2 scancodes, I encoded information regarding which key was pressed/released into a single byte and wrote it using <code>putc</code>. I then prepared a Linux kernel module to process the byte and send corresponding key information to the OS using <code>input_report_key</code> and <code>input_sync</code>.</p>
+</br>
+<p>After confirming that my idea worked, I wanted to measure communication time between the keyboard and the kernel module at different serial baud rates. Here is the very rough and shortened firmware and kernel module I used in my measurements:</p>
+</br>
+</div>
+<script type="application/javascript" src="https://gist.github.com/chrsbell/5a5f2e51e210bb2d8a8454d5c25a346c.js"></script>
+
+<script type="application/javascript" src="https://gist.github.com/chrsbell/cd3360761b24843514e7b0d53316edb3.js"></script>
+
+<div>
+</br>
+<p>When a key is pressed/released, I send a <code>1</code> or <code>2</code> to the kernel module and begin recording time in increments of 10 microseconds within the firmware. Once the data is received, the kernel module sends an acknowledgment to the keyboard and the keyboard stops recording. Finally, the keyboard sends the recorded time to the kernel module, and I cut the time in half to approximate the one-way communication speed. Here is what I recorded using various baud rates:</p>
+</br>
+
+
+
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-grow hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	  
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/12-6/19200.png');">
+      <img itemprop="thumbnail" src="/images/blog/12-6/19200.png" alt="Around 1515 microseconds at 19200 baud"/>
+    </div>
+    <a href="/images/blog/12-6/19200.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Around 1515 microseconds at 19200 baud</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/12-6/38400.png');">
+      <img itemprop="thumbnail" src="/images/blog/12-6/38400.png" alt="Around 790 microseconds at 38400 baud"/>
+    </div>
+    <a href="/images/blog/12-6/38400.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Around 790 microseconds at 38400 baud</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/12-6/57600.png');">
+      <img itemprop="thumbnail" src="/images/blog/12-6/57600.png" alt="Around 520 microseconds at 57600 baud"/>
+    </div>
+    <a href="/images/blog/12-6/57600.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Around 520 microseconds at 57600 baud</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img" style="background-image: url('/images/blog/12-6/115200.png');">
+      <img itemprop="thumbnail" src="/images/blog/12-6/115200.png" alt="Around 275 microseconds at 115200 baud"/>
+    </div>
+    <a href="/images/blog/12-6/115200.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Around 275 microseconds at 115200 baud</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+</div>
+
+</br>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/blog/12-6/scatter-plot.svg" alt="As baud rate doubles, latency is cut by around half"/>
+    </div>
+    <a href="/images/blog/12-6/scatter-plot.svg" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>As baud rate doubles, latency is cut by around half</p>
+      </figcaption>
+  </figure>
+</div>
+
+</br>
+<p>Unsurprisingly, latency is inversely proportional to round-trip latency. The maximum baud rate I could achieve using my PC was 115200, though there are serial cards that can go much higher.</p>
+<hr>
+</br>
+<h3 id="next-steps">Next steps</h3>
+<p>Well, now that I have the latest PCB in my hands, you might be thinking to yourself &ldquo;start working on it again!&quot;. Sadly I did try to build it and ran into issues hand soldering the FT230. I also forgot to add larger vias on the exposed pads for the dsPIC and FT230 so I could hand solder them as well as make the pads longer on the ESD protection. Basically, I&rsquo;m bad at soldering and had to make it more friendly to hand solder. Once the new boards arrive and I find the time I plan to continue rewriting the firmware. Stay tuned!</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-12-07&nbsp;<a class="git-hash" href="https://github.com/chrsbell/Hugo-Blog/commit/cd029c9cde213ca62bae4291aaacaf743ce9d5c9" target="_blank" title="commit by Chris Bell(chrisbell.dev@gmail.com) cd029c9cde213ca62bae4291aaacaf743ce9d5c9: New post">
+                                    <i class="fas fa-hashtag fa-fw"></i>cd029c9</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://chrsbell.github.io/2020/12/serial-mini-update1/" data-title="Serial Keyboard Update #1" data-via="thechrsbell" data-hashtags="serial,keyboard,low-latency,pcb,design,linux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://chrsbell.github.io/2020/12/serial-mini-update1/" data-hashtag="serial"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://chrsbell.github.io/2020/12/serial-mini-update1/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://chrsbell.github.io/2020/12/serial-mini-update1/" data-title="Serial Keyboard Update #1"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://chrsbell.github.io/2020/12/serial-mini-update1/" data-title="Serial Keyboard Update #1" data-image="featured-image.jpeg"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/serial/">serial</a>,&nbsp;<a href="/tags/keyboard/">keyboard</a>,&nbsp;<a href="/tags/low-latency/">low-latency</a>,&nbsp;<a href="/tags/pcb/">pcb</a>,&nbsp;<a href="/tags/design/">design</a>,&nbsp;<a href="/tags/linux/">linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/11/designing-a-chip8-emulator-in-python/" class="prev" rel="prev" title="Designing a Chip-8 Emulator in Python"><i class="fas fa-angle-left fa-fw"></i>Designing a Chip-8 Emulator in Python</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Chris Bell</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"gitalk":{"admin":["chrsbell"],"clientID":"e08bafb7ffbb327d6f67","clientSecret":"8496f5e867afedc107a2f2684bc3699449485d33","id":"2020-12-07T02:09:08.307Z","owner":"chrsbell","repo":"Hugo-Comments","title":"Serial Keyboard Update #1"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"595E1EHR1Y","algoliaIndex":"index.en","algoliaSearchKey":"0556e7de9ed76587a1091f5cfd834b26","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script src="/js/load-photoswipe.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+        
+    </body>
+</html>
